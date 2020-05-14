@@ -2,7 +2,7 @@
 export LD_LIBRARY_PATH=/usr/local/lib:/home/vagrant/autolwe/_build/c_src
 
 sudo pacman -Syyu --noconfirm
-sudo pacman -S --noconfirm --needed wget base-devel git opam gmp libffi emacs
+sudo pacman -S --noconfirm --needed wget base-devel git opam gmp libffi emacs xorg-xauth
 
 # download dependencies
 cd ~
@@ -44,4 +44,11 @@ make
 
 echo "(load \"~/PG-AutoGnP/generic/proof-site.el\")" > ~/.emacs
 echo "(setq autognp-prog-name \"~/autolwe/autognp -emacs\")" >> ~/.emacs
+
+# clean up
+cd ~
+rm -rf factory* ntl*
+
+# enable X forwarding
+sudo sed -i "s/#X11Forwarding no/X11Forwarding yes/g" /etc/ssh/sshd_config
 
