@@ -7,6 +7,8 @@ To use the box, first install `vagrant` from a package manager or from https://w
 ```
 Next clone the repository and issue
 ```
+(host) $ git clone https://github.com/hungshihhan/vagrant-autolwe.git
+(host) $ cd vagrant-autolwe
 (host) $ vagrant up
 ```
 to create a Vagrant box. The setup takes a while. Once finished, SSH into the box
