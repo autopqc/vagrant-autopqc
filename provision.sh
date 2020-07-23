@@ -1,5 +1,5 @@
 
-export LD_LIBRARY_PATH=/usr/local/lib:/home/vagrant/autolwe/_build/c_src
+export LD_LIBRARY_PATH=/usr/local/lib:/home/vagrant/autopqc/_build/c_src
 
 sudo pacman -Syyu --noconfirm
 sudo pacman -S --noconfirm --needed wget base-devel git opam gmp libffi emacs xorg-xauth
@@ -10,7 +10,7 @@ wget http://www.shoup.net/ntl/ntl-9.7.1.tar.gz
 tar xvf ntl-9.7.1.tar.gz
 wget http://www.mathematik.uni-kl.de/ftp/pub/Math/Factory/factory-4.0.2.tar.gz 
 tar xvf factory-4.0.2.tar.gz
-git clone https://github.com/autolwe/autolwe.git autolwe
+git clone https://github.com/autopqc/autopqc.git autopqc
 git clone https://github.com/ZooCrypt/PG.git PG-AutoGnP
 
 # install ntl
@@ -25,8 +25,8 @@ cd ~/factory-4.0.2
 make
 sudo make install
 
-# compile autolwe
-cd ~/autolwe
+# compile autopqc
+cd ~/autopqc
 opam init -a -y
 opam switch create 4.02.3
 eval $(opam env)
@@ -43,7 +43,7 @@ cd ~/PG-AutoGnP
 make
 
 echo "(load \"~/PG-AutoGnP/generic/proof-site.el\")" > ~/.emacs
-echo "(setq autognp-prog-name \"~/autolwe/autognp -emacs\")" >> ~/.emacs
+echo "(setq autognp-prog-name \"~/autopqc/autognp -emacs\")" >> ~/.emacs
 
 # clean up
 cd ~
